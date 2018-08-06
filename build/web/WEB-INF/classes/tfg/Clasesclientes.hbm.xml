@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-jul-2018 12:22:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tfg.Clasesclientes" table="clasesclientes" catalog="tfg" optimistic-lock="version">
+        <composite-id name="id" class="tfg.ClasesclientesId">
+            <key-property name="diaSemana" type="string">
+                <column name="DiaSemana" length="20" />
+            </key-property>
+            <key-property name="hora" type="string">
+                <column name="Hora" length="20" />
+            </key-property>
+            <key-property name="asistente" type="string">
+                <column name="Asistente" length="40" />
+            </key-property>
+            <key-property name="codigo" type="int">
+                <column name="Codigo" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

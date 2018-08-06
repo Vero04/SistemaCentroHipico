@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-jul-2018 12:22:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tfg.Caballos" table="caballos" catalog="tfg" optimistic-lock="version">
+        <id name="cod" type="int">
+            <column name="Cod" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="10" not-null="true" />
+        </property>
+        <property name="raza" type="string">
+            <column name="Raza" length="10" not-null="true" />
+        </property>
+        <property name="venta" type="string">
+            <column name="Venta" length="2" not-null="true" />
+        </property>
+        <property name="cuadra" type="int">
+            <column name="Cuadra" not-null="true" />
+        </property>
+        <property name="montura" type="int">
+            <column name="Montura" not-null="true" />
+        </property>
+        <property name="embocadura" type="int">
+            <column name="Embocadura" not-null="true" />
+        </property>
+        <property name="altura" type="int">
+            <column name="Altura" not-null="true" />
+        </property>
+        <property name="herraje" type="string">
+            <column name="Herraje" length="15" not-null="true" />
+        </property>
+        <property name="tratamientoVeterinario" type="string">
+            <column name="TratamientoVeterinario" length="65535" not-null="true" />
+        </property>
+        <property name="alquiler" type="string">
+            <column name="Alquiler" length="2" not-null="true" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="Imagen" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

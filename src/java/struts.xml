@@ -1,0 +1,354 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default">
+        <global-results>
+            <result name="error">/ErrorUniversal.jsp</result>
+            <result name="error1">/ErrorInsertarCodigo.html</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+            <exception-mapping exception="HibernateException" result="error1"/>
+        </global-exception-mappings>
+        <action name="login" class="clases.login" method="execute">
+            <result name="success">/IndexClientes.jsp</result>
+            <result name="privado">/IndexDueno.jsp</result>
+            <result name="input">/InicioSesion.jsp</result>
+            <result name="error">/InicioSesion.jsp</result> 
+        </action>
+        <action name="sesioncliente" method="execute">
+            <result name="success">/IndexCliente.jsp</result>
+        </action>
+        <action name="AltaClientes" class="clases.AltaClientes" method="execute">
+            <result name="success">/InicioSesion.jsp</result>
+            <result name="error">/RegistroClientes.jsp</result>
+        </action>
+        <action name="BorrarCliente" class="clases.EliminarCliente" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Clientes</param>
+            </result>
+        </action>
+        <action name="EliminarCuenta" class="clases.EliminarCliente" method="execute">
+            <result name="success">/index.jsp</result>
+        </action>
+        <action name="MostrarEditarCliente" class="clases.MostrarUnCliente" method="execute">
+            <result name="success">/EditarCliente.jsp</result>
+        </action>
+        <action name="EditarCliente" class="clases.EditarCliente" method="execute">
+            <result name="success">/IndexCliente.jsp</result>
+        </action>
+        <action name="Caballos" class="clases.Caballos" method="execute">
+            <result name="success">/Caballos.jsp</result>
+        </action>
+        <action name="CaballosPagados" class="clases.MostrarCaballosAlquiler" method="execute">
+            <result name="success">/CaballosPagado.jsp</result>
+        </action>
+        <action name="CaballosDueno" class="clases.Caballos" method="execute">
+            <result name="success">/GestionCaballos.jsp</result>
+        </action>
+        <action name="BorrarCaballo" class="clases.EliminarCaballo" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">CaballosDueno</param>
+            </result>
+        </action>
+         <action name="MostrarEditarCaballo" class="clases.MostrarUnCaballo" method="execute">
+            <result name="success">/EditarCaballo.jsp</result>
+        </action>
+        <action name="EditarCaballo" class="clases.EditarCaballo" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">CaballosDueno</param>
+            </result>
+        </action>
+        <action name="CaballoPropietario" class="clases.CaballoDueno" method="execute">
+            <result name="success">/CaballosPropietarios.jsp</result>
+        </action>
+        <action name="BorrarCaballoDueno" class="clases.EliminarCaballoDueno" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">CaballoPropietario</param>
+            </result>
+        </action>
+        <action name="ReservarCaballo" class="clases.MostrarUnCaballo" method="execute">
+            <result name="success">/ReservaCaballo.jsp</result>
+        </action>
+        <action name="ReservasCaballos" class="clases.ReservasCaballos" method="execute">
+            <result name="success">/ReservasCaballos.jsp</result>
+        </action>
+        <action name="AltaReservaCaballo" class="clases.ReservaCaballo" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Caballos</param>
+            </result>
+        </action>
+        <action name="ReservasCaballosCliente" class="clases.MostrarUnCliente" method="execute">
+            <result name="success">/ComprobarDNICaballos.jsp</result>
+        </action>
+        <action name="MostrarCaballosReservadosCliente" class="clases.MostrarCaballosReservadosCliente" method="execute">
+            <result name="success">/ReservasCaballosCliente.jsp</result>
+        </action>
+        <action name="AltaCaballo" class="clases.AltaCaballo" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">CaballosDueno</param>
+            </result>
+            <result name="input">/RegistroCaballos.jsp</result>
+        </action>
+        <action name="AltaCaballoDueno" class="clases.AltaCaballoDueno">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">CaballosDueno</param>
+            </result>
+        </action>
+        <action name="Profesores" class="clases.Profesores" method="execute">
+            <result name="success">/Profesores.jsp</result>
+        </action>
+        <action name="TrabajadoresDueno" class="clases.Trabajadores" method="execute">
+            <result name="success">/GestionTrabajadores.jsp</result>
+        </action>
+        <action name="AltaTrabajador" class="clases.AltaTrabajador" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">TrabajadoresDueno</param>
+            </result>
+        </action>
+        <action name="BorrarTrabajador" class="clases.EliminarTrabajador" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">TrabajadoresDueno</param>
+            </result>
+        </action>
+        <action name="MostrarEditarTrabajador" class="clases.MostrarUnTrabajador" method="execute">
+            <result name="success">/EditarTrabajador.jsp</result>
+        </action>
+        <action name="EditarTrabajador" class="clases.EditarTrabajador" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">TrabajadoresDueno</param>
+            </result>
+        </action>
+        <action name="Clases" class="clases.Clases" method="execute">
+            <result name="success">/ClasesSinPagar.jsp</result>
+        </action>
+        <action name="ClasesPagadas" class="clases.Clases" method="execute">
+            <result name="success">/ClasesPagado.jsp</result>
+        </action>
+        <action name="ClasesDueno" class="clases.Clases" method="execute">
+            <result name="success">/GestionClases.jsp</result>
+        </action>
+        <action name="AltaClases" class="clases.AltaClase">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">ClasesDueno</param>
+            </result>
+        </action>
+        <action name="ReservarClase" class="clases.MostrarUnaClase" method="execute">
+            <result name="success">/ReservaClase.jsp</result>
+        </action>
+        <action name="ReservasClases" class="clases.ReservasClases">
+            <result name="success">/GestionClasesClientes.jsp</result>
+        </action>
+        <action name="ClasesReservadasCliente" class="clases.MostrarUnCliente">
+            <result name="success">/ComprobarDNIClases.jsp</result>
+        </action>
+        <action name="MostrarClasesReservadasCliente" class="clases.MostrarClasesReservadasCliente" method="execute">
+            <result name="success">/ReservasClasesCliente.jsp</result>
+        </action>
+        <action name="CaballosAlquiler" class="clases.MostrarCaballosAlquiler">
+            <result name="success">/CaballosAlquiler.jsp</result>
+        </action>
+        <action name="AltaClasesClientes" class="clases.AltaClasesClientes" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Clases</param>
+            </result>
+        </action>
+        <action name="BorrarClase" class="clases.EliminarClase" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">ClasesDueno</param>
+            </result>
+        </action>
+        <action name="MostrarEditarClase" class="clases.MostrarUnaClase" method="execute">
+            <result name="success">/EditarClase.jsp</result>
+        </action>
+        <action name="EditarClase" class="clases.EditarClase" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">ClasesDueno</param>
+            </result>
+        </action>
+        <action name="Embocaduras" class="clases.Embocaduras" method="execute">
+            <result name="success">/Embocaduras.jsp</result>
+        </action>
+        <action name="AltaEmbocaduras" class="clases.AltaEmbocaduras">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Embocaduras</param>
+            </result>
+        </action>
+        <action name="BorrarEmbocadura" class="clases.EliminarEmbocadura" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Embocaduras</param>
+            </result>
+        </action>
+        <action name="MostrarEditarEmbocadura" class="clases.MostrarUnaEmbocadura" method="execute">
+            <result name="success">/EditarEmbocadura.jsp</result>
+        </action>
+        <action name="EditarEmbocadura" class="clases.EditarEmbocadura" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Embocaduras</param>
+            </result>
+        </action>
+        <action name="Monturas" class="clases.Monturas" method="execute">
+            <result name="success">/Monturas.jsp</result>
+        </action>
+        <action name="AltaMonturas" class="clases.AltaMonturas">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Monturas</param>
+            </result>
+        </action>
+        <action name="BorrarMontura" class="clases.EliminarMontura" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Monturas</param>
+            </result>
+        </action>
+        <action name="MostrarEditarMontura" class="clases.MostrarUnaMontura" method="execute">
+            <result name="success">/EditarMontura.jsp</result>
+        </action>
+        <action name="EditarMontura" class="clases.EditarMontura" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Monturas</param>
+            </result>
+        </action>
+        <action name="Instalaciones" class="clases.Pistas" method="execute">
+            <result name="success">/InstalacionesSinPagar.jsp</result>
+        </action>
+        <action name="InstalacionesPagadas" class="clases.Pistas" method="execute">
+            <result name="success">/InstalacionesPagado.jsp</result>
+        </action>
+        <action name="InstalacionesDueno" class="clases.Pistas" method="execute">
+            <result name="success">/GestionInstalaciones.jsp</result>
+        </action>
+        <action name="BorrarPista" class="clases.EliminarPista" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">InstalacionesDueno</param>
+            </result>
+        </action>
+        <action name="MostrarEditarPista" class="clases.MostrarUnaPista" method="execute">
+            <result name="success">/EditarPista.jsp</result>
+        </action>
+        <action name="EditarPista" class="clases.EditarPista" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">InstalacionesDueno</param>
+            </result>
+        </action>
+        <action name="ReservarPista" class="clases.MostrarUnaPista" method="execute">
+            <result name="success">/ReservaPista.jsp</result>
+        </action>
+        <action name="AltaReservaPista" class="clases.ReservaPista" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Instalaciones</param>
+            </result>
+        </action>
+        <action name="ReservasPistasCliente" class="clases.MostrarUnCliente" method="execute">
+            <result name="success">/ComprobarDNIPistas.jsp</result>
+        </action>
+        <action name="MostrarPistasReservadasCliente" class="clases.MostrarPistasReservadasCliente" method="execute">
+            <result name="success">/ReservasPistasCliente.jsp</result>
+        </action>
+        <action name="Cuadras" class="clases.Cuadras" method="execute">
+            <result name="success">/Cuadras.jsp</result>
+        </action>
+        <action name="AltaCuadra" class="clases.AltaCuadra">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Cuadras</param>
+            </result>
+        </action>
+        <action name="BorrarCuadra" class="clases.EliminarCuadra" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Cuadras</param>
+            </result>
+        </action>
+        <action name="MostrarEditarCuadra" class="clases.MostrarUnaCuadra" method="execute">
+            <result name="success">/EditarCuadra.jsp</result>
+        </action>
+        <action name="EditarCuadra" class="clases.EditarCuadra" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Cuadras</param>
+            </result>
+        </action>
+        <action name="AltaPista" class="clases.AltaPista" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">InstalacionesDueno</param>
+            </result>
+        </action>
+        <action name="PistasReservadas" class="clases.ReservasPistas" method="execute">
+            <result name="success">/ReservasPistas.jsp</result>
+        </action>
+        <action name="Clientes" class="clases.Clientes" method="execute">
+            <result name="success">/Clientes.jsp</result>
+        </action>
+        <action name="Servicios" class="clases.Servicios" method="execute">
+            <result name="success">/ServiciosSinPagar.jsp</result>
+        </action>
+        <action name="ServiciosPagados" class="clases.Servicios" method="execute">
+            <result name="success">/ServiciosPagado.jsp</result>
+        </action>
+        <action name="ServiciosDueno" class="clases.Servicios" method="execute">
+            <result name="success">/GestionServicios.jsp</result>
+        </action>
+        <action name="AltaServicio" class="clases.AltaServicio" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">ServiciosDueno</param>
+            </result>
+        </action>
+        <action name="BorrarServicio" class="clases.EliminarServicio" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">ServiciosDueno</param>
+            </result>
+        </action>
+        <action name="MostrarEditarServicio" class="clases.MostrarUnServicio" method="execute">
+            <result name="success">/EditarServicio.jsp</result>
+        </action>
+        <action name="EditarServicio" class="clases.EditarServicio" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">ServiciosDueno</param>
+            </result>
+        </action>
+        <action name="ReservarServicio" class="clases.MostrarUnServicio" method="execute">
+            <result name="success">/ReservaServicio.jsp</result>
+        </action>
+        <action name="ServiciosReservados" class="clases.ReservasServicios" method="execute">
+            <result name="success">/ReservasServicios.jsp</result>
+        </action>
+        <action name="ServiciosReservadosCliente" class="clases.MostrarUnCliente">
+            <result name="success">/ComprobarDNIServicios.jsp</result>
+        </action>
+        <action name="MostrarServiciosReservadosCliente" class="clases.MostrarServiciosReservadosCliente" method="execute">
+            <result name="success">/ReservasServiciosCliente.jsp</result>
+        </action>
+        <action name="AltaReservaServicio" class="clases.ReservaServicio" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Servicios</param>
+            </result>
+        </action>
+        <action name="Empresas" class="clases.Empresas" method="execute">
+            <result name="success">/Empresas.jsp</result>
+        </action>
+        <action name="AltaEmpresa" class="clases.AltaEmpresa" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Empresas</param>
+            </result>
+        </action>
+        <action name="BorrarEmpresa" class="clases.EliminarEmpresa" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Empresas</param>
+            </result>
+        </action>
+        <action name="MostrarEditarEmpresa" class="clases.MostrarUnaEmpresa" method="execute">
+            <result name="success">/EditarEmpresa.jsp</result>
+        </action>
+        <action name="EditarEmpresa" class="clases.EditarEmpresa" method="execute">
+            <result type="redirectAction" name="success"> 
+                <param name="actionName">Empresas</param>
+            </result>
+        </action>
+        <action name="enviar" class="clases.envioCorreo" method="execute">
+            <result name="success">/index.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
+        <action name="cerrarSesion" class="clases.CerrarSesion" method="execute">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+</struts>

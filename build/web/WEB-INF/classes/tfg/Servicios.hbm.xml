@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-jul-2018 12:22:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tfg.Servicios" table="servicios" catalog="tfg" optimistic-lock="version">
+        <id name="cod" type="int">
+            <column name="Cod" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="30" not-null="true" />
+        </property>
+        <property name="dias" type="string">
+            <column name="Dias" length="30" not-null="true" />
+        </property>
+        <property name="precio" type="int">
+            <column name="Precio" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

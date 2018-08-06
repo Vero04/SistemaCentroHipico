@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-jul-2018 12:22:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tfg.Caballosduenos" table="caballosduenos" catalog="tfg" optimistic-lock="version">
+        <composite-id name="id" class="tfg.CaballosduenosId">
+            <key-property name="caballo" type="int">
+                <column name="Caballo" />
+            </key-property>
+            <key-property name="dueno" type="string">
+                <column name="Dueno" length="9" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

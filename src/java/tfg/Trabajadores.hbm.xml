@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-jul-2018 12:22:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tfg.Trabajadores" table="trabajadores" catalog="tfg" optimistic-lock="version">
+        <id name="dni" type="string">
+            <column name="DNI" length="9" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="20" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="100" not-null="true" />
+        </property>
+        <property name="codPostal" type="java.lang.Integer">
+            <column name="CodPostal" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="Ciudad" length="20" />
+        </property>
+        <property name="tipoTrabajador" type="string">
+            <column name="TipoTrabajador" length="40" not-null="true" />
+        </property>
+        <property name="salario" type="int">
+            <column name="Salario" not-null="true" />
+        </property>
+        <property name="telefono" type="int">
+            <column name="Telefono" not-null="true" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="Imagen" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-jul-2018 12:22:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tfg.Usuarios" table="usuarios" catalog="tfg" optimistic-lock="version">
+        <composite-id name="id" class="tfg.UsuariosId">
+            <key-property name="usuario" type="string">
+                <column name="Usuario" length="16" />
+            </key-property>
+            <key-property name="password" type="string">
+                <column name="Password" length="10" />
+            </key-property>
+            <key-property name="dni" type="string">
+                <column name="DNI" length="9" />
+            </key-property>
+        </composite-id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="20" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="100" not-null="true" />
+        </property>
+        <property name="codPostal" type="int">
+            <column name="CodPostal" not-null="true" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="Ciudad" length="20" not-null="true" />
+        </property>
+        <property name="telefono" type="int">
+            <column name="Telefono" not-null="true" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="Sexo" length="10" not-null="true" />
+        </property>
+        <property name="admin" type="int">
+            <column name="Admin" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
